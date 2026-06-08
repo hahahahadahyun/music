@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENHYPEN 소개 페이지</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Pretendard, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #dcdcdc,
+                #a5a5a5,
+                #f5f5f5,
+                #7a7a7a
+            );
+
+            background-attachment: fixed;
+
+            color: white;
+        }
+
+        header {
+            text-align: center;
+
+            padding: 70px 20px;
+
+            background: linear-gradient(
+                to right,
+                #6f6f6f,
+                #d9d9d9,
+                #707070
+            );
+
+            color: black;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 75px;
+            letter-spacing: 8px;
+            font-weight: bold;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 22px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+
+            margin: auto;
+
+            padding: 60px 0;
+        }
+
+        .member-card {
+            margin-bottom: 70px;
+
+            padding: 40px;
+
+            border-radius: 35px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(40,40,40,0.92),
+                rgba(90,90,90,0.7)
+            );
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow: 0 0 20px rgba(255,255,255,0.08);
+
+            transition: 0.4s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .member-title {
+            text-align: center;
+
+            font-size: 65px;
+
+            margin-bottom: 40px;
+
+            color: white;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+        }
+
+        .member-content {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 45px;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+        .image-box img {
+            width: 270px;
+            height: 360px;
+
+            object-fit: cover;
+
+            border-radius: 25px;
+
+            border: 2px solid rgba(255,255,255,0.12);
+
+            box-shadow: 0 0 12px rgba(255,255,255,0.08);
+
+            transition: 0.4s;
+        }
+
+        .image-box img:hover {
+            transform: scale(1.04);
+        }
+
+        .intro-box {
+            margin-top: 18px;
+
+            background: rgba(255,255,255,0.08);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 18px;
+
+            padding: 18px;
+
+            text-align: center;
+
+            line-height: 2;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 0 18px rgba(255,255,255,0.18),
+                0 0 35px rgba(255,255,255,0.08),
+                inset 0 0 12px rgba(255,255,255,0.06);
+        }
+
+        .birth-box {
+            margin-top: 15px;
+
+            text-align: center;
+
+            padding: 12px;
+
+            border-radius: 15px;
+
+            background: linear-gradient(
+                to right,
+                rgba(255,255,255,0.12),
+                rgba(255,255,255,0.05)
+            );
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            font-size: 18px;
+
+            letter-spacing: 1px;
+
+            box-shadow:
+                0 0 18px rgba(255,255,255,0.18),
+                0 0 35px rgba(255,255,255,0.08),
+                inset 0 0 12px rgba(255,255,255,0.06);
+        }
+
+        .video-box {
+            padding: 14px;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.08),
+                rgba(255,255,255,0.02)
+            );
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 0 20px rgba(255,255,255,0.08),
+                inset 0 0 15px rgba(255,255,255,0.05);
+        }
+
+        iframe {
+            width: 560px;
+            max-width: 100%;
+            height: 315px;
+
+            border: none;
+
+            border-radius: 20px;
+        }
+
+        .song-title {
+            margin-top: 15px;
+
+            text-align: center;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.08);
+
+            padding: 14px;
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow: 0 0 18px rgba(255,255,255,0.12);
+        }
+
+        .button-group {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 18px;
+
+            flex-wrap: wrap;
+        }
+
+        .link-btn {
+            display: inline-block;
+
+            padding: 13px 28px;
+
+            border-radius: 16px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            background-color: #5f5f5f;
+
+            border: 2px solid #d9d9d9;
+
+            box-shadow: 0 0 12px rgba(255,255,255,0.15);
+
+            transition: 0.3s ease;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-4px);
+
+            background-color: #7a7a7a;
+
+            box-shadow: 0 0 20px rgba(255,255,255,0.25);
+        }
+
+        footer {
+            text-align: center;
+
+            padding: 35px;
+
+            background: rgba(40,40,40,0.9);
+
+            color: #ddd;
+
+            font-size: 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .member-content {
+                flex-direction: column;
+            }
+
+            .member-title {
+                font-size: 48px;
+            }
+
+            header h1 {
+                font-size: 52px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>ENHYPEN</h1>
+        <p>엔하이픈 멤버 소개 페이지</p>
+    </header>
+
+    <div class="container">
+
+        <!-- 성훈 -->
+        <div class="member-card">
+            <h2 class="member-title">성훈</h2>
+
+            <div class="member-content">
+
+                <div class="image-box">
+                    <img src="https://i.namu.wiki/i/av4TCf1_cua10I_QqVR50DnNSvQLCYQCACj3yw4ffEGkHuFIkKAF7OBM8bor7usAS90UrfR_gibQRZMQ1hm023qRGPmKIh3IYPfn42AtHhLhpwS5S_EDfhWJJE3LM7sDMoXT2iYSdUoaW4hUnfck2A.webp" alt="성훈">
+
+                    <div class="intro-box">
+                        1. 메인비주얼 <br>
+                        2. 백구
+                    </div>
+
+                    <div class="birth-box">
+                        🎂 2002.12.08
+                    </div>
+                </div>
+
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/wqw9A88tliE" allowfullscreen></iframe>
+
+                    <div class="song-title">
+                        XO (Only If You Say Yes)
+                    </div>
+
+                    <div class="button-group">
+                        <a href="https://namu.wiki/w/%EC%84%B1%ED%9B%88(ENHYPEN)" target="_blank" class="link-btn">나무위키</a>
+
+                        <a href="https://weverse.io/enhypen" target="_blank" class="link-btn">위버스</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 정원 -->
+        <div class="member-card">
+            <h2 class="member-title">양정원</h2>
+
+            <div class="member-content">
+
+                <div class="image-box">
+                    <img src="https://i.namu.wiki/i/nFliFJPtNaPj-VqVbfUw26BP1Qr7C-bc4-vZhhCdt5jkI-v2WR1SeDQ0UMslbgDrGl15r_-JBbLuCIP8d-tk5Q.webp" alt="양정원">
+
+                    <div class="intro-box">
+                        1. 리더 <br>
+                        2. 고양이
+                    </div>
+
+                    <div class="birth-box">
+                        🎂 2004.02.09
+                    </div>
+                </div>
+
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/LNA-Ioawia4" allowfullscreen></iframe>
+
+                    <div class="song-title">
+                        Bad Desire (With or Without You)
+                    </div>
+
+                    <div class="button-group">
+                        <a href="https://namu.wiki/w/%EC%A0%95%EC%9B%90(ENHYPEN)" target="_blank" class="link-btn">나무위키</a>
+
+                        <a href="https://weverse.io/enhypen" target="_blank" class="link-btn">위버스</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 제이 -->
+        <div class="member-card">
+            <h2 class="member-title">제이</h2>
+
+            <div class="member-content">
+
+                <div class="image-box">
+                    <img src="https://i.namu.wiki/i/jxk_-jXOL-DTaubqjDdbCbG1YvufqOVaZAA5oiUDI7DmpekvfBKeJQ4SzzqaK5A94Cd6L0ZCU1xfIsFcWa6tyA.webp" alt="제이">
+
+                    <div class="intro-box">
+                        1. 감자상 <br>
+                        2. 기타치기
+                    </div>
+
+                    <div class="birth-box">
+                        🎂 2002.04.20
+                    </div>
+                </div>
+
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/bf-YPL2inBc" allowfullscreen></iframe>
+
+                    <div class="song-title">
+                        No Doubt
+                    </div>
+
+                    <div class="button-group">
+                        <a href="https://namu.wiki/w/%EC%A0%9C%EC%9D%B4(ENHYPEN)" target="_blank" class="link-btn">나무위키</a>
+
+                        <a href="https://weverse.io/enhypen" target="_blank" class="link-btn">위버스</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 제이크 -->
+        <div class="member-card">
+            <h2 class="member-title">제이크</h2>
+
+            <div class="member-content">
+
+                <div class="image-box">
+                    <img src="https://i.namu.wiki/i/Eu304vYrSQ4R1Eb2LQgRqlEuDsLuyPMLIhGZ_Lli4cYeaQFt5GLmG-pu48LIwTBVMhJAzTHBuNt6IowjxNeZYWPMoFXN4IpnPmcjYC7O-wkPI5EPb4kX-uBPd_RObQ7oKjGt5Rf9lRdiz1cD2jiV7g.webp" alt="제이크">
+
+                    <div class="intro-box">
+                        1. 강아지 <br>
+                        2. 사워젤리
+                    </div>
+
+                    <div class="birth-box">
+                        🎂 2002.11.15
+                    </div>
+                </div>
+
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/0IDGOpOSKNQ" allowfullscreen></iframe>
+
+                    <div class="song-title">
+                        Fatal Trouble
+                    </div>
+
+                    <div class="button-group">
+                        <a href="https://namu.wiki/w/%EC%A0%9C%EC%9D%B4%ED%81%AC(ENHYPEN)" target="_blank" class="link-btn">나무위키</a>
+
+                        <a href="https://weverse.io/enhypen" target="_blank" class="link-btn">위버스</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 선우 -->
+        <div class="member-card">
+            <h2 class="member-title">선우</h2>
+
+            <div class="member-content">
+
+                <div class="image-box">
+                    <img src="https://i.namu.wiki/i/QIgH5gFvSkE272g4GmHROIy8nDQOSx4aE3YMEvDT69eouhWlviLDEJzCfzkvvlMEhaL0X4-MRh-HFhp02rw_lYVFuNR3ZzbvXM_ItlZKuQuvxgg3GY3geWrH493wqXGEz4PReLsl_MoWCrlSqvlvkA.webp" alt="선우">
+
+                    <div class="intro-box">
+                        1. 디저트 <br>
+                        2. 여우상
+                    </div>
+
+                    <div class="birth-box">
+                        🎂 2003.06.24
+                    </div>
+                </div>
+
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/ko53rgUp_cc" allowfullscreen></iframe>
+
+                    <div class="song-title">
+                        Bite Me
+                    </div>
+
+                    <div class="button-group">
+                        <a href="https://namu.wiki/w/%EC%84%A0%EC%9A%B0(ENHYPEN)" target="_blank" class="link-btn">나무위키</a>
+
+                        <a href="https://weverse.io/enhypen" target="_blank" class="link-btn">위버스</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 니키 -->
+        <div class="member-card">
+            <h2 class="member-title">니키</h2>
+
+            <div class="member-content">
+
+                <div class="image-box">
+                    <img src="https://i.namu.wiki/i/ZWufrakL2Epsp100AGpzgOUguq-EacnvQFpxKm12rJEYB6ALvB1AkEuY7vik6y9avRX1YoPr_F80WEW1j3FZkJgTvQBUgxiUGglkAjc_tTMjNikqrmaNH6SuIpb7CqrDajCexFZz3N-eU75IdY7fNg.webp" alt="니키">
+
+                    <div class="intro-box">
+                        1. 메인댄서 <br>
+                        2. 오리
+                    </div>
+
+                    <div class="birth-box">
+                        🎂 2005.12.09
+                    </div>
+                </div>
+
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/WIllGKaCl18" allowfullscreen></iframe>
+
+                    <div class="song-title">
+                        Outside
+                    </div>
+
+                    <div class="button-group">
+                        <a href="https://namu.wiki/w/%EB%8B%88%ED%82%A4(ENHYPEN)" target="_blank" class="link-btn">나무위키</a>
+
+                        <a href="https://weverse.io/enhypen" target="_blank" class="link-btn">위버스</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 ENHYPEN FAN PAGE
+    </footer>
+
+</body>
+
+</html>
